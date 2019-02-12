@@ -1,12 +1,31 @@
 form {
   display: flex;
   flex-direction: column;
-  width: 20%;
+  width: 80%;
   margin: 30px auto;
+}
+
+form button {
+  width: 25%;
+  margin: 15px auto;
+  border: none;
+  border-radius: 50px;
+  font-size: 24px;
+  background: rgb(62, 153, 62);
+  color: white;
+}
+
+form button:hover {
+  cursor: pointer;
+  background: green;
 }
 
 input {
   margin: 5px 0;
+  border: 1px solid gray;
+  border-radius: 50px;
+  padding: 6px;
+  font-size: 20px;
 }
 
 .posts {
@@ -54,6 +73,7 @@ input {
 
 .modify .delete:hover{
   background: red;
+  cursor: pointer;
 }
 
 .modify .edit {
@@ -62,5 +82,6 @@ input {
 }
 
 .modify .edit:hover {
-  background: rgb(67, 8, 102)
+  background: rgb(67, 8, 102);
+  cursor: pointer;
 }
