@@ -5,6 +5,8 @@ const Posts = require('../data/db.js');
 const router = express.Router();
 
 // this only runs if the url has /api/posts in it
+
+// GET all posts
 router.get('/', (req, res) => {
     Posts.find()
         .then(posts => {
@@ -15,6 +17,7 @@ router.get('/', (req, res) => {
         })
 })
 
+// GET post by specific id parameter
 router.get('/:id', (req, res) => {
     const id = req.params.id;
 
@@ -31,6 +34,7 @@ router.get('/:id', (req, res) => {
         })
 })
 
+// POST a new post to the database
 router.post('/', (req, res) => {
     const newPost = req.body;
     if (!newPost.title || !newPost.contents) {
@@ -48,5 +52,26 @@ router.post('/', (req, res) => {
             })
     }  
 })
+
+// DELETE a post by specific id parameter
+router.delete('/:id', (req, res) => {
+    const id = req.params.id;
+    Posts.findById(id)
+        .then(post => {
+            if (post.length === 0) {
+                res.status(404).json({ message: "The post with the specified ID does not exist." });
+            } else {
+                Posts.remove(id)
+                    .then(post => {
+                        res.status(204).end();
+                    })
+            }
+        })
+        .catch(err => {
+            res.status(500).json({ error: "The post could not be removed" });
+        })
+})
+
+
 
 module.exports = router;
