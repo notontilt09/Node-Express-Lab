@@ -59,7 +59,7 @@ input {
 }
 
 .post h4 {
-  color: white;
+  color: rgb(197, 85, 20);
   font-size: 12px;
 }
 
@@ -88,7 +88,7 @@ input {
 
 .modify .edit {
   background: rgb(125, 46, 228);
-  color: white;
+  color: white
 }
 
 .modify .edit:hover {
