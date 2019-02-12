@@ -69,6 +69,19 @@ class App extends Component {
       })
   }
 
+  deletePost = (e, id) => {
+    e.preventDefault();
+    axios.delete(`${url}/${id}`)
+      .then(res => {
+        axios.get(`${url}`)
+          .then(res => {
+            this.setState({
+              posts: res.data
+            })
+          })
+      })
+  }
+
   render() {
     return (
       <div className="App">
