@@ -82,6 +82,31 @@ class App extends Component {
       })
   }
 
+  updatePost = () => {
+    const toBeUpdated = this.state.posts.find(post => post.id === this.state.updatingId);
+    axios.put(`${url}/${toBeUpdated.id}`, this.state.newPost)
+      .then(res => {
+        axios.get(`${url}`)
+          .then(res => {
+            this.setState({
+              posts: res.data
+            })
+          })
+      })
+  }
+
+  populateForm = (e, post) => {
+    e.preventDefault();
+    this.setState({
+      newPost: {
+        title: post.title,
+        contents: post.contents
+      },
+      isUpdating: true,
+      updatingId: post.id
+    })
+  }
+
   render() {
     return (
       <div className="App">
@@ -111,10 +136,10 @@ class App extends Component {
               <div key={post.id} className='post'>
                 <h2>{post.title}</h2>
                 <h3>{post.contents}</h3>
-                <h4>Last updated: {moment(post.updated_at).fromNow()}</h4>
+                <h4>Created: {moment(post.updated_at).fromNow()}</h4>
                 <div className='modify'>
-                  <button onClick={(e) => this.deletePost(e, post.id)}>Delete</button>
-                  <button onClick={(e) => this.populateForm(e, post)}>Update</button>
+                  <button className='delete' onClick={(e) => this.deletePost(e, post.id)}>Delete</button>
+                  <button className='edit' onClick={(e) => this.populateForm(e, post)}>Update</button>
                 </div>
               </div>
             )

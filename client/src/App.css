@@ -10,13 +10,57 @@ input {
 }
 
 .posts {
-  width: 70%;
+  width: 90%;
   margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .post {
+  width: 45%;
   border: 1px solid lightgray;
   box-shadow: inset 1px 1px 1px 1px lightgray;
-  margin: 10px 0;
+  margin: 10px;
   padding: 10px;
+}
+
+.post h3 {
+  font-style: italic;
+  font-size: 16px;
+}
+
+.post h4 {
+  color: gray;
+  font-size: 12px;
+}
+
+.modify {
+  text-align: center;
+}
+
+.modify button {
+  margin: 10px;
+  padding: 5px 20px;
+  border: none;
+  border-radius: 50px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.modify .delete {
+  background: tomato;
+  color: white;
+}
+
+.modify .delete:hover{
+  background: red;
+}
+
+.modify .edit {
+  background: rgb(125, 46, 228);
+  color: white;
+}
+
+.modify .edit:hover {
+  background: rgb(67, 8, 102)
 }
