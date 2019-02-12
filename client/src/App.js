@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import axios from 'axios'
+import axios from 'axios';
+import moment from 'moment'
 
 import './App.css';
 
@@ -35,6 +36,39 @@ class App extends Component {
     })
   }
 
+  handleSubmit = e => {
+    e.preventDefault();
+    if (this.state.isUpdating) {
+      this.updatePost();
+      this.setState({
+        isUpdating: false,
+        newPost: {
+          title: '',
+          contents: '',
+        },
+        updatingId: null
+      })
+    } else {
+      this.addPost(this.state.newPost)
+    }
+  }
+
+  addPost = post => {
+    axios.post(`${url}`, post)
+      .then(res => {
+        axios.get(`${url}`)
+          .then(res => {
+            this.setState({
+              posts: res.data,
+              newPost: {
+                title: '',
+                contents: '',
+              }
+            })
+          })
+      })
+  }
+
   render() {
     return (
       <div className="App">
@@ -64,7 +98,11 @@ class App extends Component {
               <div key={post.id} className='post'>
                 <h2>{post.title}</h2>
                 <h3>{post.contents}</h3>
-                <h4>{post.updated_at}</h4>
+                <h4>Last updated: {moment(post.updated_at).fromNow()}</h4>
+                <div className='modify'>
+                  <button onClick={(e) => this.deletePost(e, post.id)}>Delete</button>
+                  <button onClick={(e) => this.populateForm(e, post)}>Update</button>
+                </div>
               </div>
             )
           })}
