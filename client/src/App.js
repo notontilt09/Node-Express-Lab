@@ -110,6 +110,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <h1>React LoTR</h1>
         <form onSubmit={this.handleSubmit}>
           <input  
             type='text'

@@ -1,8 +1,14 @@
+.App h1 {
+  text-align: center;
+  color: rgb(230, 230, 230);
+  font-size: 38px;
+}
+
 form {
   display: flex;
   flex-direction: column;
   width: 80%;
-  margin: 30px auto;
+  margin: 30px auto 0 auto;
 }
 
 form button {
@@ -30,26 +36,30 @@ input {
 
 .posts {
   width: 90%;
-  margin: 0 auto;
+  margin: 10px auto 30px auto;
   display: flex;
   flex-wrap: wrap;
 }
 
 .post {
   width: 45%;
-  border: 1px solid lightgray;
-  box-shadow: inset 1px 1px 1px 1px lightgray;
+  border: 1px solid white;
+  border-radius: 20px;
+  box-shadow: inset 1px 1px 1px 1px white;
   margin: 10px;
   padding: 10px;
+  background: rgb(35, 37, 37);
+  color: rgb(101, 169, 224);
 }
 
 .post h3 {
   font-style: italic;
   font-size: 16px;
+  color: rgb(204, 204, 88);
 }
 
 .post h4 {
-  color: gray;
+  color: white;
   font-size: 12px;
 }
 
