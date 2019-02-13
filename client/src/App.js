@@ -4,7 +4,7 @@ import moment from 'moment'
 
 import './App.css';
 
-const url = 'http://localhost:5000/api/posts';
+const url = 'https://react-lotr.herokuapp.com/api/posts';
 
 class App extends Component {
   constructor() {
