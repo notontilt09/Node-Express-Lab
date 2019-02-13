@@ -74,18 +74,23 @@ router.delete('/:id', (req, res) => {
 
 // UPDATE a post by specific id parameter
 router.put('/:id', (req, res) => {
+    const now = new Date().toISOString();
     const id = req.params.id;
     const updatedPost = req.body;
 
     if (!updatedPost.title || !updatedPost.contents) {
         res.status(400).json({ errorMessage: "Please provide title and contents for the post." });
     } else {
-        Posts.update(id, updatedPost)
+        // Posts.update(id, updatedPost)
+        Posts.update(id, {...updatedPost, ['updated_at']: now.split('T').join(' ').slice(0, now.length -5)})
             .then(updated => {
                 if (updated) {
                     Posts.findById(id)
                         .then(post => {
-                            res.status(200).json(post);
+                            res.status(200).json(
+                                {...post[0],
+                                    ['updated_at']: now.split('T').join(' ').slice(0, now.length -5)
+                            })
                         })
                 } else {
                     res.status(404).json({ message: "The post with the specified ID does not exist." });

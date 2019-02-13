@@ -137,7 +137,7 @@ class App extends Component {
               <div key={post.id} className='post'>
                 <h2>{post.title}</h2>
                 <h3>{post.contents}</h3>
-                <h4>Created: {moment.utc(post.updated_at).fromNow()}</h4>
+                <h4>Last Updated: {moment.utc(post.updated_at).fromNow()}</h4>
                 <div className='modify'>
                   <button className='delete' onClick={(e) => this.deletePost(e, post.id)}>Delete</button>
                   <button className='edit' onClick={(e) => this.populateForm(e, post)}>Update</button>
