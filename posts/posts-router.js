@@ -81,7 +81,6 @@ router.put('/:id', (req, res) => {
     if (!updatedPost.title || !updatedPost.contents) {
         res.status(400).json({ errorMessage: "Please provide title and contents for the post." });
     } else {
-        // Posts.update(id, updatedPost)
         Posts.update(id, {...updatedPost, ['updated_at']: now.split('T').join(' ').slice(0, now.length -5)})
             .then(updated => {
                 if (updated) {
