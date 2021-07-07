@@ -1,0 +1,103 @@
+.App h1 {
+  text-align: center;
+  color: rgb(230, 230, 230);
+  font-size: 38px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: 30px auto 0 auto;
+}
+
+form button {
+  width: 25%;
+  margin: 15px auto;
+  border: none;
+  border-radius: 50px;
+  font-size: 24px;
+  background: rgb(62, 153, 62);
+  color: white;
+}
+
+form button:hover {
+  cursor: pointer;
+  background: green;
+}
+
+input {
+  margin: 5px 0;
+  border: 1px solid gray;
+  border-radius: 50px;
+  padding: 6px;
+  font-size: 20px;
+}
+
+.posts {
+  width: 90%;
+  margin: 10px auto 30px auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.post {
+  width: 45%;
+  border: 1px solid white;
+  border-radius: 20px;
+  box-shadow: inset 1px 1px 1px 1px white;
+  margin: 10px;
+  padding: 10px;
+  background: rgb(35, 37, 37);
+  color: rgb(101, 169, 224);
+}
+
+@media (max-width: 1000px) {
+  .post {
+    width: 90%;
+  }
+}
+
+.post h3 {
+  font-style: italic;
+  font-size: 16px;
+  color: rgb(204, 204, 88);
+}
+
+.post h4 {
+  color: rgb(197, 85, 20);
+  font-size: 12px;
+}
+
+.modify {
+  text-align: center;
+}
+
+.modify button {
+  margin: 10px;
+  padding: 5px 20px;
+  border: none;
+  border-radius: 50px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.modify .delete {
+  background: tomato;
+  color: white;
+}
+
+.modify .delete:hover{
+  background: red;
+  cursor: pointer;
+}
+
+.modify .edit {
+  background: rgb(125, 46, 228);
+  color: white
+}
+
+.modify .edit:hover {
+  background: rgb(67, 8, 102);
+  cursor: pointer;
+}
